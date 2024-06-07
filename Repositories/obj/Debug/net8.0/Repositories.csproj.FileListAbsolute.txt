@@ -1,0 +1,17 @@
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\Repositories.deps.json
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\Repositories.dll
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\Repositories.pdb
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\BusinessObjects.dll
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\DataAccessObjects.dll
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\BusinessObjects.pdb
+E:\code\c#\ProductManagementDemo\Repositories\bin\Debug\net8.0\DataAccessObjects.pdb
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.csproj.AssemblyReference.cache
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfoInputs.cache
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfo.cs
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.csproj.CoreCompileInputs.cache
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Reposito.787EC4B2.Up2Date
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.dll
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\refint\Repositories.dll
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\Repositories.pdb
+E:\code\c#\ProductManagementDemo\Repositories\obj\Debug\net8.0\ref\Repositories.dll
