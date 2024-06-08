@@ -2,6 +2,7 @@
 using DataAccessObjects;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Repositories
 
         public Product GetProductById(int id) => ProductDAO.GetProductById(id);
 
-        public List<Product> GetProducts() => ProductDAO.GetProducts();
+        public ObservableCollection<Product> GetProducts() => ProductDAO.GetProducts();
 
         public void SaveProduct(Product p) => ProductDAO.SaveProduct(p);
 

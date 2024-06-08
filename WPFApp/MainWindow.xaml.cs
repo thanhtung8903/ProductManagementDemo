@@ -1,7 +1,9 @@
-﻿using BusinessObjects;
-using Services;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using BusinessObjects;
+using Services;
 
 namespace WPFApp
 {
@@ -12,13 +14,15 @@ namespace WPFApp
     {
         private readonly IProductService iProductService;
         private readonly ICatergoryService iCatergoryService;
-
+        private ObservableCollection<Product> products;
 
         public MainWindow()
         {
             InitializeComponent();
             iProductService = new ProductService();
             iCatergoryService = new CategoryService();
+            products = new ObservableCollection<Product>();
+            dgData.ItemsSource = products;
         }
 
         public void LoadCategoryList()
@@ -41,7 +45,11 @@ namespace WPFApp
             try
             {
                 var prodList = iProductService.GetProducts();
-                dgData.ItemsSource = prodList;
+                products.Clear();
+                foreach (var product in prodList)
+                {
+                    products.Add(product);
+                }
             }
             catch (Exception ex)
             {
@@ -49,7 +57,7 @@ namespace WPFApp
             }
             finally
             {
-                resetInput();
+                ResetInput();
             }
         }
 
@@ -63,11 +71,13 @@ namespace WPFApp
         {
             try
             {
-                Product product = new Product();
-                product.ProductName = txtProductName.Text;
-                product.UnitPrice = decimal.Parse(txtPrice.Text);
-                product.UnitsInStock = short.Parse(txtUnitsInStock.Text);
-                product.CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString());
+                Product product = new Product
+                {
+                    ProductName = txtProductName.Text,
+                    UnitPrice = Int32.Parse(txtPrice.Text),
+                    UnitsInStock = short.Parse(txtUnitsInStock.Text),
+                    CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString())
+                };
                 iProductService.SaveProduct(product);
             }
             catch (Exception ex)
@@ -82,19 +92,18 @@ namespace WPFApp
 
         private void dgData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dataGrid = sender as DataGrid;
-            DataGridRow row =
-                (DataGridRow)dataGrid.ItemContainerGenerator
-                .ContainerFromIndex(dataGrid.SelectedIndex);
-            DataGridCell RowColumn =
-                dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
-            string id = ((TextBlock)RowColumn.Content).Text;
-            Product product = iProductService.GetProductById(Int32.Parse(id));
-            txtProductID.Text = product.ProductID.ToString();
-            txtProductName.Text = product.ProductName;
-            txtPrice.Text = product.UnitPrice.ToString();
-            txtUnitsInStock.Text = product.UnitsInStock.ToString();
-            cboCategory.SelectedValue = product.CategoryId;
+            if (dgData.SelectedItem == null)
+                return;
+
+            Product selectedProduct = dgData.SelectedItem as Product;
+            if (selectedProduct != null)
+            {
+                txtProductID.Text = selectedProduct.ProductID.ToString();
+                txtProductName.Text = selectedProduct.ProductName;
+                txtPrice.Text = selectedProduct.UnitPrice.ToString();
+                txtUnitsInStock.Text = selectedProduct.UnitsInStock.ToString();
+                cboCategory.SelectedValue = selectedProduct.CategoryId;
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -108,13 +117,16 @@ namespace WPFApp
             {
                 if (txtProductID.Text.Length > 0)
                 {
-                    Product product = new Product();
-                    product.ProductID = Int32.Parse(txtProductID.Text);
-                    product.ProductName = txtProductName.Text;
-                    product.UnitPrice = decimal.Parse(txtPrice.Text);
-                    product.UnitsInStock = short.Parse(txtUnitsInStock.Text);
-                    product.CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString());
+                    Product product = new Product
+                    {
+                        ProductID = Int32.Parse(txtProductID.Text),
+                        ProductName = txtProductName.Text,
+                        UnitPrice = Int32.Parse(txtPrice.Text),
+                        UnitsInStock = short.Parse(txtUnitsInStock.Text),
+                        CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString())
+                    };
                     iProductService.UpdateProduct(product);
+                    LoadProductList();
                 }
                 else
                 {
@@ -125,10 +137,6 @@ namespace WPFApp
             {
                 MessageBox.Show(ex.Message, "Error on update product");
             }
-            finally
-            {
-                LoadProductList();
-            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -137,13 +145,16 @@ namespace WPFApp
             {
                 if (txtProductID.Text.Length > 0)
                 {
-                    Product product = new Product();
-                    product.ProductID = Int32.Parse(txtProductID.Text);
-                    product.ProductName = txtProductName.Text;
-                    product.UnitPrice = decimal.Parse(txtPrice.Text);
-                    product.UnitsInStock = short.Parse(txtUnitsInStock.Text);
-                    product.CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString());
+                    Product product = new Product
+                    {
+                        ProductID = Int32.Parse(txtProductID.Text),
+                        ProductName = txtProductName.Text,
+                        UnitPrice = Int32.Parse(txtPrice.Text),
+                        UnitsInStock = short.Parse(txtUnitsInStock.Text),
+                        CategoryId = Int32.Parse(cboCategory.SelectedValue.ToString())
+                    };
                     iProductService.DeleteProduct(product);
+                    LoadProductList();
                 }
                 else
                 {
@@ -154,13 +165,9 @@ namespace WPFApp
             {
                 MessageBox.Show(ex.Message, "Error on delete product");
             }
-            finally
-            {
-                LoadProductList();
-            }
         }
 
-        private void resetInput()
+        private void ResetInput()
         {
             txtProductID.Text = "";
             txtProductName.Text = "";

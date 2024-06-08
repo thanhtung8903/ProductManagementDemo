@@ -17,8 +17,9 @@ namespace DataAccessObjects
                 accountMember.MemberId = accountId;
                 accountMember.MemberPassword = "@1";
                 accountMember.MemberRole = 1;
+                return accountMember;
             }
-            return accountMember;
+            return null;
         }
     }
 }

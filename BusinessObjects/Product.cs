@@ -10,12 +10,12 @@ namespace BusinessObjects
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public int? CategoryId { get; set; }
-        public short? UnitsInStock { get; set; }
-        public decimal? UnitPrice { get; set; }
+        public int CategoryId { get; set; }
+        public int UnitsInStock { get; set; }
+        public int UnitPrice { get; set; }
         public virtual Category Category { get; set; }
 
-        public Product(int id, string name, int catId, short unitInStock, decimal price)
+        public Product(int id, string name, int catId, int unitInStock, int price)
         {
             this.ProductID = id;
             this.ProductName = name;

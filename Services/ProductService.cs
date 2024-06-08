@@ -2,6 +2,7 @@
 using Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Services
 
         public Product GetProductById(int id) => iProductRepository.GetProductById(id);
 
-        public List<Product> GetProducts() => iProductRepository.GetProducts();
+        public ObservableCollection<Product> GetProducts() => iProductRepository.GetProducts();
 
         public void SaveProduct(Product p) => iProductRepository.SaveProduct(p);
 

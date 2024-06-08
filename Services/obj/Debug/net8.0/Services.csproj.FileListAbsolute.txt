@@ -12,6 +12,7 @@ E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.GeneratedMSB
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.AssemblyInfoInputs.cache
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
+E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.sourcelink.json
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\Services.dll
 E:\code\c#\ProductManagementDemo\Services\obj\Debug\net8.0\refint\Services.dll

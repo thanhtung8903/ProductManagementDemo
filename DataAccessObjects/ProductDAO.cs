@@ -1,6 +1,7 @@
 ﻿using BusinessObjects;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,21 +10,21 @@ namespace DataAccessObjects
 {
     public class ProductDAO
     {
-        public static List<Product> listProducts = new List<Product>();
-
-
-        public ProductDAO()
+        public static ObservableCollection<Product> ListProducts = InitializeProducts();
+        private static int nextProductId = 4; 
+        
+        private static ObservableCollection<Product> InitializeProducts()
         {
             Product chai = new Product(1, "Chai", 3, 12, 18);
             Product chang = new Product(2, "Chang", 1, 23, 19);
             Product aniseed = new Product(3, "Aniseed Syrup", 2, 23, 10);
 
-            listProducts = new List<Product> { chai, chang, aniseed };
+            return new ObservableCollection<Product> { chai, chang, aniseed };
         }
 
-        public static List<Product> GetProducts()
+        public static ObservableCollection<Product> GetProducts()
         {
-            return listProducts;
+            return ListProducts;
         }
 
         //public static List<Product> GetProducts()
@@ -36,39 +37,36 @@ namespace DataAccessObjects
         //}
 
         public static void SaveProduct(Product product)
-        {
-            listProducts.Add(product);
+        {   
+            product.ProductID = nextProductId;
+            nextProductId++;
+            ListProducts.Add(product);
         }
 
         public static void UpdateProduct(Product product)
         {
-          foreach (Product p in listProducts)
+            for (int i = 0; i < ListProducts.Count; i++)
             {
-                if (p.ProductID == product.ProductID)
+                if (ListProducts[i].ProductID == product.ProductID)
                 {
-                    p.ProductID = product.ProductID;
-                    p.ProductName = product.ProductName;
-                    p.CategoryId = product.CategoryId;
-                    p.UnitsInStock = product.UnitsInStock;
-                    p.UnitPrice = product.UnitPrice;
+                    ListProducts[i] = product;
+                    return;
                 }
             }
         }
 
         public static void DeleteProduct(Product product)
         {
-            foreach (Product p in listProducts)
+            var productsToRemove = ListProducts.Where(p => p.ProductID == product.ProductID).ToList();
+            foreach (var p in productsToRemove)
             {
-                if (p.ProductID == product.ProductID)
-                {
-                    listProducts.Remove(p);
-                }
+                ListProducts.Remove(p);
             }
         }
 
         public static Product GetProductById(int id)
         {
-            foreach (Product p in listProducts)
+            foreach (Product p in ListProducts)
             {
                 if (p.ProductID == id)
                 {

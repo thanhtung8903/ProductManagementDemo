@@ -24,6 +24,7 @@ E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.Generate
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.AssemblyInfoInputs.cache
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.AssemblyInfo.cs
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.csproj.CoreCompileInputs.cache
+E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.sourcelink.json
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.csproj.Up2Date
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\WPFApp.dll
 E:\code\c#\ProductManagementDemo\WPFApp\obj\Debug\net8.0-windows\refint\WPFApp.dll

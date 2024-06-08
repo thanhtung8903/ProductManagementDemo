@@ -8,6 +8,7 @@ E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessOb
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfoInputs.cache
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfo.cs
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CoreCompileInputs.cache
+E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAcce.79975846.Up2Date
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
 E:\code\c#\ProductManagementDemo\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
